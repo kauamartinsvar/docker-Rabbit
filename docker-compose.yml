@@ -1,0 +1,19 @@
+services:
+  sqlserver:
+    build: .
+    ports: 
+      - "1433:1433"
+
+
+  rabbit:
+    image: "rabbitmq:3-management"
+    hostname: localhost
+    ports: 
+       - "15672:15672"
+       - "5672:5672"
+    environment:
+       RABBITMQ_ERLANG_COOKIE: "ABCDEFGHIJKL"
+       RABBITMQ_DEFAULT_USER: "guest"
+       RABBITMQ_DEFAULT_PASS: "guest"
+       RABBITMQ_DEFAULT_VHOST: "/"
+    
